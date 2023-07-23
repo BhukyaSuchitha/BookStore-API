@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
         type: String
     }
 },{
+
+    // Used to show the created and updates time of document in the DB
+    
     timestamps: true
 })
 

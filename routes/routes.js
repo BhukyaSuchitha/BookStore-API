@@ -10,6 +10,9 @@ const bcrypt = require('bcrypt')
 const BookModel = require('../models/book')
 const UserModel = require('../models/user')
 
+
+// To retrieve list of books with filtering options like genre,availability
+
 router.get('/books' , async (req, res) => {
     try{
         let query = req.query
@@ -36,6 +39,7 @@ router.get('/books/:id', async (req, res) => {
     }
 })
 
+// To Create a new book (accesibble to admin users)
 
 router.post('/books', userAuth,  checkRole(['admin']), validator('bookSchema') , async (req, res) => {
   
@@ -84,6 +88,7 @@ router.delete('/books/:id', userAuth , checkRole(['admin']), async (req, res) =>
     }
 })
 
+// Registration request
 
 router.post('/auth/signup', validator('signUpSchema'), async (req, res) => {
     try{
@@ -94,6 +99,9 @@ router.post('/auth/signup', validator('signUpSchema'), async (req, res) => {
 
         let emailNotRegistered = await validateEmail(req.body.email)
         if(!emailNotRegistered) res.status(400).json({message: `User with email ${req.body.email} is Already registered.`})
+
+
+        // Encryption of password
 
         const password = await bcrypt.hash(req.body.password,12)
 
