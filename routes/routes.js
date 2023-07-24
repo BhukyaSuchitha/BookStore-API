@@ -17,7 +17,7 @@ router.get('/books' , async (req, res) => {
     try{
         let query = req.query
          let page = Number(req.query.page) || 1; 
-         let limit = Number(req.query.limit) || 1;
+         let limit = Number(req.query.limit) || 10000;
 
          let skip = (page - 1)*limit;
         
