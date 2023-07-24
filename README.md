@@ -52,9 +52,9 @@ The Book Store API is a RESTful web service that provides endpoints for managing
 
 ```bash
 
-git clone https://github.com/your-username/book-store-api.git
+git clone https://github.com/BhukyaSuchitha/BookStore-API.git
 
-cd book-store-api
+cd BookStore-API
 
 ```
 
@@ -77,19 +77,15 @@ Create a `.env` file in the root directory and provide the following variables:
 
 ```plaintext
 
-DATABASE_URL = mongodb://localhost:27017/book_store_db
+DATABASE_URL = mongodb://localhost:27017/books-store-api
 
+SECRET = SuchithaBookstoreAPI 
 
-SECRET = bookstoreSkeps
+JWT_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic3VjaGl0aGEiLCJlbWFpbCI6ImFkbWluQGdhbWlsLmNvbSIsInBhc3N3b3JkIjoidGVzdEAxMjM0Iiwicm9sZSI6ImFkbWluIn0.pUSnWjgiqYEqrOA5Fabvr48Hv3PnDvlW4eesPr9Bo98
 
-
-JWT_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYm9va3N0b3JlIiwidHlwZSI6ImF1dGhvcml6YXRpb24ifQ.IDHn305W8nhWhuxzXytFQBE4
+(I have created the jwt token using the SECRET from jwt.io website)
 
 ```
-
-
-Replace `SECRET` with a strong secret key for JWT token signing.
-
 
 4. Start the server:
 
@@ -116,7 +112,10 @@ npm start
 ### Book Endpoints
 
 
-- `GET /books`: Get the list of all books. Add the params like title, author,genre and stock availability(true/false) for filtersing the books
+- `GET /books`: Get the list of all books. Add the params like title, author,genre and stock availability(true/false) for filtering the books.
+For example: filtering by title : localhost:3000/books?title=test
+Can also add the values such as page and limit to access the books.
+ For example : localhost:3000/book?page=1&limit=2
 
 
 - `GET /books/:id`: Get a specific book by its ID.
@@ -142,8 +141,3 @@ To access protected endpoints (add, update, delete books), include the JWT token
 Authorization: Bearer JWT_TOKEN
 
 ```
-
-
----
-
-Replace `your-username` in the repository URL with your actual GitHub username. Also, customize the MongoDB URI, JWT secret key, and other configurations according to your specific setup.
