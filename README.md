@@ -116,7 +116,7 @@ npm start
 ### Book Endpoints
 
 
-- `GET /books`: Get the list of all books.
+- `GET /books`: Get the list of all books. Add the params like title, author,genre and stock availability(true/false) for filtersing the books
 
 
 - `GET /books/:id`: Get a specific book by its ID.

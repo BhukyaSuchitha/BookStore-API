@@ -53,7 +53,7 @@ router.post('/books', userAuth,  checkRole(['admin']), validator('bookSchema') ,
 
     try{
         const saveData = await newBook.save()
-        res.status(200).json({data:saveData, message: 'Hello' })
+        res.status(200).json({data:saveData, message: 'Book data created successfully.' })
     }catch(error){
         res.status(400).json({message: error.message})
     }
