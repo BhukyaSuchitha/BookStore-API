@@ -5,6 +5,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const port = process.env.PORT || 3000
 const app = express()
+const User = require('./models/user')
 
 app.use(express.json())
 

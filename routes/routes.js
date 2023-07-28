@@ -1,4 +1,5 @@
 const express = require('express')
+const got = require('got')
 const checkRole = require('../middeware/checkrole')
 const userAuth = require('../middeware/userauth')
 
@@ -20,14 +21,15 @@ router.get('/books' , async (req, res) => {
          let limit = Number(req.query.limit) || 10000;
 
          let skip = (page - 1)*limit;
-        
         let books = await BookModel.find().where({ 
             ...(query.title && {"title": query?.title}),
             ...(query.genre && {"genre": query?.genre}),
             ...(query.author && {"author": query?.author}),
             ...(query.available && (query.available == "true" ? {"stock" : {$gt: 0}} : {"stock" : 0}))
         }).limit(limit).skip(skip)
+       
         res.status(200).json({books: books, query: query})
+
     }catch(err){
         res.status(500).json({message: err.message})
     }
@@ -142,5 +144,30 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
     }
 })
 
+router.post('/buybooks/:id',async(req,res) => { 
+    
+    try{ 
+         let id = req.params.id
+         let book = await BookModel.findById(id)
+        if(book.stock == 0){
+            return res.status(401).json({message:"Out of stock"})
+        }
+        req.body.amount = book.price
+        let payment = await got.post("https://stoplight.io/mocks/skeps/book-store:master/12094368/misc/payment/process",{
+            json: req.body
+
+            
+        }).json()
+        console.log(payment.payment_id)
+        const updatedBook = await BookModel.findByIdAndUpdate(id,{stock: book.stock-1}, {returnOriginal : false})
+        res.status(200).json(payment)
+        
+        
+
+    }catch(error){
+        return res.status(500).json({message:error.message})
+    }
+
+})
 
 module.exports  = router

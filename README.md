@@ -115,7 +115,7 @@ npm start
 - `GET /books`: Get the list of all books. Add the params like title, author,genre and stock availability(true/false) for filtering the books.
 For example: filtering by title : localhost:3000/books?title=test
 Can also add the values such as page and limit to access the books.
- For example : localhost:3000/book?page=1&limit=2
+ For example : localhost:3000/book?page=1&limit=2 
 
 
 - `GET /books/:id`: Get a specific book by its ID.
@@ -141,3 +141,11 @@ To access protected endpoints (add, update, delete books), include the JWT token
 Authorization: Bearer JWT_TOKEN
 
 ```
+
+
+
+stripe 
+
+pk_test_51NYlcfSDNk5QWMslfkuSl8UZVET3a8xjcVcIJxoAIZP4MiUl8sxXr8aCYXYeaM5kWQoCCRl8MwEcNeL6XjvdsTHU00KYUs0If0
+
+sk_test_51NYlcfSDNk5QWMslcPn9nn10cQ1WYTNuTeqOQOvKRFLo9pdgF0X09blogF8lAhkFVbsNSKDgk8UGJ99ydwmLfCi600qVpkpgVP
