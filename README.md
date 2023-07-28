@@ -141,11 +141,7 @@ To access protected endpoints (add, update, delete books), include the JWT token
 Authorization: Bearer JWT_TOKEN
 
 ```
+Mock Server URL
+https://stoplight.io/mocks/skeps/book-store:master/12094368/misc/payment/process
 
 
-
-stripe 
-
-pk_test_51NYlcfSDNk5QWMslfkuSl8UZVET3a8xjcVcIJxoAIZP4MiUl8sxXr8aCYXYeaM5kWQoCCRl8MwEcNeL6XjvdsTHU00KYUs0If0
-
-sk_test_51NYlcfSDNk5QWMslcPn9nn10cQ1WYTNuTeqOQOvKRFLo9pdgF0X09blogF8lAhkFVbsNSKDgk8UGJ99ydwmLfCi600qVpkpgVP
