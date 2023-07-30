@@ -1,0 +1,14 @@
+{"level":"info","message":"User undefined is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:02:34.949Z"}
+{"level":"info","message":"User undefinedpurchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:02:35.639Z"}
+{"level":"info","message":"User undefined is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:03:28.347Z"}
+{"level":"info","message":"User undefined is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:04:04.097Z"}
+{"level":"info","message":"User priya@gmail.com is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:06:37.064Z"}
+{"level":"info","message":"User priya@gmail.compurchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:06:37.594Z"}
+{"level":"info","message":"User priya@gmail.com is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:23:43.302Z"}
+{"level":"info","message":"User priy@gmail.com is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:24:18.793Z"}
+{"level":"info","message":"User priy@gmail.com is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:24:44.583Z"}
+{"level":"info","message":"User priy@gmail.com purchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T12:24:45.193Z"}
+{"level":"info","message":"User sonu@gmail.com is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:17.704Z"}
+{"level":"info","message":"User sonu@gmail.com purchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:18.438Z"}
+{"level":"info","message":"User sonu@gmailcom is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:25.447Z"}
+{"level":"info","message":"User sonu@gmailcom purchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:26.006Z"}

@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt')
 
 const BookModel = require('../models/book')
 const UserModel = require('../models/user')
+const logger = require('../logger');
 
 
 // To retrieve list of books with filtering options like genre,availability
@@ -146,10 +147,12 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
 
 router.post('/buybooks/:id',async(req,res) => { 
     
-    try{ 
+    try{ logger.info(`User ${req.body.email} is attempting to buy book ${req.params.id}.`);
          let id = req.params.id
          let book = await BookModel.findById(id)
+         let email = req.body.email
         if(book.stock == 0){
+            logger.info(`User ${email} is attempting to buy book ${id} which is of stock 0.`);
             return res.status(401).json({message:"Out of stock"})
         }
         req.body.amount = book.price
@@ -160,13 +163,17 @@ router.post('/buybooks/:id',async(req,res) => {
         }).json()
         console.log(payment.payment_id)
         const updatedBook = await BookModel.findByIdAndUpdate(id,{stock: book.stock-1}, {returnOriginal : false})
+        logger.info(`User ${email} purchased the book of id:${id}.`);
         res.status(200).json(payment)
         
         
 
     }catch(error){
+        logger.info(`User:${email},Payment is unsuccessfull.`);
         return res.status(500).json({message:error.message})
     }
+
+
 
 })
 
