@@ -133,7 +133,8 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
         console.log(req.body.email)
         let user = await UserModel.findOne({email : req.body.email})
         
-        if(!user) return res.status(404).json({message: 'User Not Found'})
+        if(!user)
+        return res.status(404).json({message: 'User Not Found'})
 
         let isPasswordValid = bcrypt.compareSync(req.body.password, user.password) 
         if(!isPasswordValid) return res.status(401).json({message: 'Invalid password'})

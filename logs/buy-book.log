@@ -12,3 +12,5 @@
 {"level":"info","message":"User sonu@gmail.com purchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:18.438Z"}
 {"level":"info","message":"User sonu@gmailcom is attempting to buy book 64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:25.447Z"}
 {"level":"info","message":"User sonu@gmailcom purchased the book of id:64be403319e8e0b3c5febc1c.","timestamp":"2023-07-30T19:08:26.006Z"}
+{"level":"info","message":"User sonu@gmailcom is attempting to buy book 64be404919e8e0b3c5febc1f.","timestamp":"2023-07-30T19:13:30.476Z"}
+{"level":"info","message":"User sonu@gmailcom purchased the book of id:64be404919e8e0b3c5febc1f.","timestamp":"2023-07-30T19:13:31.189Z"}
