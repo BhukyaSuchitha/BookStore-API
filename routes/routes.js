@@ -148,10 +148,11 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
 
 router.post('/buybooks/:id',async(req,res) => { 
     
-    try{ logger.info(`User ${req.body.email} is attempting to buy book ${req.params.id}.`);
-         let id = req.params.id
-         let book = await BookModel.findById(id)
-         let email = req.body.email
+    try{ 
+        logger.info(`User ${email} is attempting to buy book ${req.params.id}.`);
+        let id = req.params.id
+        let email = req.body.email
+        let book = await BookModel.findById(id)
         if(book.stock == 0){
             logger.info(`User ${email} is attempting to buy book ${id} which is of stock 0.`);
             return res.status(401).json({message:"Out of stock"})
@@ -170,7 +171,7 @@ router.post('/buybooks/:id',async(req,res) => {
         
 
     }catch(error){
-        logger.info(`User:${email},Payment is unsuccessfull.`);
+        logger.info(`Payment is unsuccessfull.`);
         return res.status(500).json({message:error.message})
     }
 
