@@ -144,4 +144,3 @@ Authorization: Bearer JWT_TOKEN
 Mock Server URL
 https://stoplight.io/mocks/skeps/book-store:master/12094368/misc/payment/process
 
-

@@ -4,7 +4,7 @@ const winston = require('winston');
 const logger = winston.createLogger({
   transports: [
     new winston.transports.File({ filename: 'logs/buy-book.log'}),
-    new winston.transports.Console({ level: 'debug' })
+    // new winston.transports.Console({ level: 'debug' })
   ],
   format: winston.format.combine(
     winston.format.timestamp(),
