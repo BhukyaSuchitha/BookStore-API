@@ -145,9 +145,13 @@ router.post('/auth/signup', validator('signUpSchema'), async (req, res) => {
     }
 })
 
+router.get('/home',(req,res)=>{
+    res.sendFile('/Users/bhukya.suchitha/Documents/bookstore-main/login.html')
+})
+
 router.post('/auth/login', validator('loginSchema') , async (req, res) => {
     try{
-        console.log(req.body.email)
+       
         let user = await UserModel.findOne({email : req.body.email})
         
         if(!user)
@@ -155,7 +159,7 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
 
         let isPasswordValid = bcrypt.compareSync(req.body.password, user.password) 
         if(!isPasswordValid) return res.status(401).json({message: 'Invalid password'})
-        if(req.body.role !== user.role) return res.status(401).json({message: 'Please check the entered details again!!!'})
+        //if(req.body.role !== user.role) return res.status(401).json({message: 'Please check the entered details again!!!'})
         return res.status(200).json({message: 'Login Successfull!', userDetails: user})
 
     }catch(error){

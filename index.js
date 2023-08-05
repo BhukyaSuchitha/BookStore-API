@@ -7,7 +7,10 @@ const port = process.env.PORT || 3000
 const app = express()
 const User = require('./models/user')
 
+const path = "/Users/bhukya.suchitha/Documents/bookstore-main"
+
 app.use(express.json())
+app.use(express.static(path))
 
 const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString);

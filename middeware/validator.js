@@ -10,7 +10,7 @@ const Validators = {
     loginSchema: Joi.object({
         email: Joi.string().email().required(),
         password: Joi.string().min(4).required(),
-        role:  Joi.string().allow('customer','admin').required()
+        role:  Joi.string().allow('customer','admin')
     }),
     bookSchema: Joi.object({
         email: Joi.string().email().required(),
