@@ -28,7 +28,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           const row = document.createElement('tr');
 
-          row.innerHTML = `
+          row.innerHTML = 
+        
+          
+          `
 
             <td>${book.title}</td>
 
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <td>${book.price}</td>
 
           `;
+          
 
           bookList.appendChild(row);
 
