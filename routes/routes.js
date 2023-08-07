@@ -11,10 +11,10 @@ const bcrypt = require('bcrypt')
 const BookModel = require('../models/book')
 const UserModel = require('../models/user')
 const logger = require('../logger');
-const Sentry  = require('../sentry/sentry')
+// const Sentry  = require('../sentry/sentry')
 
-router.use(Sentry.Handlers.requestHandler())
-router.use(Sentry.Handlers.errorHandler())
+// router.use(Sentry.Handlers.requestHandler())
+// router.use(Sentry.Handlers.errorHandler())
 
 
 // To retrieve list of books with filtering options like genre,availability
@@ -36,7 +36,7 @@ router.get('/books' , async (req, res) => {
         res.status(200).json({books: books, query: query})
 
     }catch(err){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
         res.status(500).json({message: err.message})
     }
 })
@@ -49,7 +49,7 @@ router.get('/books/:id', async (req, res) => {
         let book = await BookModel.findById(req.params.id)
         res.status(200).json(book)
     }catch(err){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
         res.status(404).json({message: `Book With Id ${req.params.id} is not found`})
     }
 })
@@ -70,7 +70,7 @@ router.post('/books', userAuth,  checkRole(['admin']), validator('bookSchema') ,
         const saveData = await newBook.save()
         res.status(200).json({data:saveData, message: 'Book data created successfully.' })
     }catch(error){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
 
         res.status(400).json({message: error.message})
     }
@@ -88,7 +88,7 @@ router.put('/books/:id', userAuth, checkRole(['admin']), async (req, res) => {
         if(!updatedBook) return res.status(404).json({message: 'Book not found'}) 
         res.status(200).json({message: 'Book updated', newBook: updatedBook})
     }catch(err){
-        Sentry.captureException(error)
+        // Sentry.captureException(err)
         res.status(500).json({message: err.message})
     }
 })
@@ -102,7 +102,7 @@ router.delete('/books/:id', userAuth , checkRole(['admin']), async (req, res) =>
         }
         else{
             const err= "Book not found error"
-            Sentry.captureException(err)
+            // Sentry.captureException(err)
             return res.status(200).json({message: `Book with Id ${req.params.id} not found`})
 
         }
@@ -140,7 +140,7 @@ router.post('/auth/signup', validator('signUpSchema'), async (req, res) => {
         await newUser.save()
         return res.status(200).json({message: "User added successfully!!"})
     }catch(error){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
         return res.status(500).json({message: error.message})
     }
 })
@@ -163,7 +163,7 @@ router.post('/auth/login', validator('loginSchema') , async (req, res) => {
         return res.status(200).json({message: 'Login Successfull!', userDetails: user})
 
     }catch(error){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
         return res.status(500).json({message: "User not found"})
     }
 })
@@ -185,7 +185,7 @@ router.post('/buybooks/:id',async(req,res) => {
 
             
         }).json().catch((e)=>{
-            Sentry.captureException(e)
+            // Sentry.captureException(e)
         })
         console.log(payment.payment_id)
         const updatedBook = await BookModel.findByIdAndUpdate(id,{stock: book.stock-1}, {returnOriginal : false})
@@ -195,7 +195,7 @@ router.post('/buybooks/:id',async(req,res) => {
         
 
     }catch(error){
-        Sentry.captureException(error)
+        // Sentry.captureException(error)
         logger.info(`Payment is unsuccessfull.`);
         return res.status(500).json({message:error.message})
     }
